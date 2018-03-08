@@ -15,4 +15,12 @@ socket.on('newEmail', function(email) {
 
 socket.on('newMessage',function(msg){
 console.log(msg);
+});
+
+socket.emit('createMessage',{
+    from:'frank',
+    text:'Hi'
+},function(data){
+    console.log('Got it',data);
+    
 })
