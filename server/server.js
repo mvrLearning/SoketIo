@@ -16,17 +16,31 @@ var io = socketIo(server);
 io.on('connection', (socket) => {
     console.log('new user connected');
 
-     socket.on('createEmail', (newEmail) => {
-        console.log('createEmail', newEmail);
+    socket.emit('newMessage',{
+        from:"Admin",
+        msg:"Welcome to the Chat App",
+        createdAt:new Date().getTime()
+    });
 
+    socket.broadcast.emit('newMessage',{
+        from:"Admin",
+        msg:"New User Joined",
+        createdAt:new Date().getTime()
     })
+    
     socket.on('createMessage',(message)=>{
         console.log('Create Message',message);
+
         io.emit('newMessage',{
             from:message.from,
             text:message.text,
             createdAt:new Date().getTime()
         })
+        // socket.broadcast.emit('newMessage',{
+        //     from:message.from,
+        //     text:message.text,
+        //     createdAt:new Date().getTime()
+        // })
     })
     socket.on('disconnect', () => {
         console.log('Disconnected the client');
