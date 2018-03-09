@@ -22,7 +22,8 @@
     },
     "homepage": "https://github.com/venkateshmareddy/SocketIo#readme",
     "dependencies": {
-        "express": "^4.16.2"
+        "express": "^4.16.2",
+        "moment": "^2.21.0"
     },
     "devDependencies": {
         "expect": "^22.4.0",
