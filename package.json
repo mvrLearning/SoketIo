@@ -23,6 +23,7 @@
     "homepage": "https://github.com/venkateshmareddy/SocketIo#readme",
     "dependencies": {
         "express": "^4.16.2",
+        "lodash": "^4.17.5",
         "moment": "^2.21.0"
     },
     "devDependencies": {
